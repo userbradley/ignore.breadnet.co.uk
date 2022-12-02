@@ -1,3 +1,5 @@
+## curl https://ignore.fly.dev/random >> .gitignore
+## Hosted on breadINFRA for Bradley@breadnet.co.uk
 
 # Node artifact files
 node_modules/

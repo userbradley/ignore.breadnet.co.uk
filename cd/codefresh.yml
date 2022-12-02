@@ -21,15 +21,6 @@ steps:
     commands:
       - export FLY_API_TOKEN=${{FLY_API_TOKEN}}
       - cf_export FLY_API_TOKEN
-  docker-file:
-    title: "docker-file"
-    stage: "setup"
-    working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
-    image: alpine
-    commands:
-      - pwd
-      - ls -la
-      - cat Dockerfile
 
   build:
     title: "Fly Build"
