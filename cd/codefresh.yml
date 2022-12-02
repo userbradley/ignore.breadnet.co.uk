@@ -27,7 +27,8 @@ steps:
     working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
     image: alpine
     commands:
-      - ls
+      - pwd
+      - ls -la
       - cat Dockerfile
 
   build:
