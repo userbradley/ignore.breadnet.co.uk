@@ -9,7 +9,7 @@ steps:
   clone:
     title: "Cloning repository"
     type: "git-clone"
-    repo: "userbradley/documentation.breadnet.co.uk"
+    repo: "userbradley/ignore.breadnet.co.uk"
     revision: "${{CF_BRANCH}}"
     git: "github"
     stage: "clone"
@@ -24,7 +24,7 @@ steps:
   docker-file:
     title: "docker-file"
     stage: "setup"
-    working_directory: "/codefresh/volume/"
+    working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
     image: alpine
     commands:
       - pwd
