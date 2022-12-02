@@ -24,7 +24,7 @@ steps:
   docker-file:
     title: "docker-file"
     stage: "setup"
-    working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
+    working_directory: "/codefresh/volume/"
     image: alpine
     commands:
       - pwd
