@@ -41,3 +41,11 @@ terraform.rc
 # When developing terraform modules, the repo will have a test dir that is used
 # to test the module by calling it locally.
 test
+
+# Ignores terraform lock files which are useless in my opinion
+
+.terraform.lock.hcl
+
+# Ignores Files that the MacOS generates in directories
+
+.DS_Store
