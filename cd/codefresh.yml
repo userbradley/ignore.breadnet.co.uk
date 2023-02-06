@@ -1,41 +1,41 @@
-version: "1.0"
-stages:
-  - "clone"
-  - "setup"
-  - "docker"
-  - "deploy"
-
-steps:
-  clone:
-    title: "Cloning repository"
-    type: "git-clone"
-    repo: "userbradley/ignore.breadnet.co.uk"
-    revision: "${{CF_BRANCH}}"
-    git: "github"
-    stage: "clone"
-
-  fly-env:
-    title: "Fly API Env"
-    stage: "setup"
-    image: alpine
-    commands:
-      - export FLY_API_TOKEN=${{FLY_API_TOKEN}}
-      - cf_export FLY_API_TOKEN
-
-  build:
-    title: "Fly Build"
-    type: "build"
-    working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
-    image_name: "ignore"
-    tag: "${{CF_SHORT_REVISION}}"
-    dockerfile: "Dockerfile"
-    stage: "docker"
-    registry: fly
-
-  deploy:
-    title: "PROD Fly Deployment"
-    stage: "deploy"
-    image: "userbradley/flyctl:latest"
-    working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
-    commands:
-      - flyctl deploy --config fly.toml --image registry.fly.io/ignore:${{CF_SHORT_REVISION}} --detach
+#version: "1.0"
+#stages:
+#  - "clone"
+#  - "setup"
+#  - "docker"
+#  - "deploy"
+#
+#steps:
+#  clone:
+#    title: "Cloning repository"
+#    type: "git-clone"
+#    repo: "userbradley/ignore.breadnet.co.uk"
+#    revision: "${{CF_BRANCH}}"
+#    git: "github"
+#    stage: "clone"
+#
+#  fly-env:
+#    title: "Fly API Env"
+#    stage: "setup"
+#    image: alpine
+#    commands:
+#      - export FLY_API_TOKEN=${{FLY_API_TOKEN}}
+#      - cf_export FLY_API_TOKEN
+#
+#  build:
+#    title: "Fly Build"
+#    type: "build"
+#    working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
+#    image_name: "ignore"
+#    tag: "${{CF_SHORT_REVISION}}"
+#    dockerfile: "Dockerfile"
+#    stage: "docker"
+#    registry: fly
+#
+#  deploy:
+#    title: "PROD Fly Deployment"
+#    stage: "deploy"
+#    image: "userbradley/flyctl:latest"
+#    working_directory: "/codefresh/volume/ignore.breadnet.co.uk/"
+#    commands:
+#      - flyctl deploy --config fly.toml --image registry.fly.io/ignore:${{CF_SHORT_REVISION}} --detach
